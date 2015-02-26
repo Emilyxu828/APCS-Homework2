@@ -1,3 +1,5 @@
+//works only for k.solve(2,2,1)
+
 import java.io.*;
 import java.util.*;
 
@@ -6,13 +8,17 @@ public class KnightsTour {
     private int maxX;
     private int maxY;
 
-    private int count = 0;
+    //private int count = 0;
     private int total = 25; // 5*5
     private boolean solved = false;
 
     public void delay(int n){
 	try {
 	    Thread.sleep(n);
+
+
+
+
 	} catch (Exception e) {}
     }
 
@@ -42,32 +48,35 @@ public class KnightsTour {
 	}
     }
 
-    public void solve(int x, int y){
-	count++;
+    public void solve(int x, int y, int count){
+	//count++;
 	if (board[x][y] != 0 || solved == true)
 	    return;
+	board[x][y] = count;        //if doesn't return^ then set board
+	                            //before print() bc finishes #25 then prints
 	if (count == 25){
 	    print();
 	    solved = true;
 	}
-	board[x][y] = count;
-	solve(x+1,y+2);
-        solve(x+1, y-2);
-        solve(x-1,y+2);
-	solve(x-1,y+2);
-	solve(x+2, y+1);
-        solve(x+2, y-1);
-	solve(x-2,y+1);
-	solve(x-2, y-1);
+      
+	solve(x+1,y+2, count+1);
+        solve(x+1, y-2, count+1);
+        solve(x-1,y+2, count+1);
+	solve(x-1,y+2, count+1);
+	solve(x+2, y+1, count+1);
+        solve(x+2, y-1, count+1);
+	solve(x-2,y+1, count+1);
+	solve(x-2, y-1, count+1);
 	if (solved == false){
-	    board[x][y] = count;
+	    board[x][y] = 0;        //if at end solved=true,sets back to 0
+	    count--;                //backtracking
 	}
     }
 
     public static void main(String[] args){
 	KnightsTour k = new KnightsTour();
 	System.out.println(k);
-	k.solve(2,2);
+	k.solve(2,2,1);
 	System.out.println(k);
     }
 }
