@@ -75,9 +75,7 @@ public class KnightsTour {
 
     public static void main(String[] args){
 	KnightsTour k = new KnightsTour();
-	System.out.println(k);
 	k.solve(2,2,1);
-	System.out.println(k);
     }
 }
 
