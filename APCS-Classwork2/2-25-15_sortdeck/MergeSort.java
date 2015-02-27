@@ -21,7 +21,7 @@ public class MergeSort{
 
 	int i=0;
 	int j=0;
-	while (i<A.size() || j<B.size()){
+	while (i<A.size() && j<B.size()){
 	    if (A.get(i) < B.get(j)){
 		C.add(A.get(i));
 		i++;
@@ -38,14 +38,14 @@ public class MergeSort{
 	    }
 	}
 
-	/*	if (i == A.size()-1 && j != B.size()-1){
-	    for(j; j<B.size(); j++)
+       	if (i == A.size()-1 && j != B.size()-1){
+	    for(j=j; j<B.size(); j++)
 		C.add(B.get(j));
 	}
 	if (i != A.size()-1 && j == B.size()-1){
-	    for (i; i<A.size(); i++)
+	    for (i=i; i<A.size(); i++)
 		C.add(A.get(i));
-		} */
+		} 
 
 	return C;
     }
@@ -63,6 +63,9 @@ public class MergeSort{
 	w.add(4);
 	w.add(5);
 	m.merge(q,w);
+	for (int e=0; e<C.size(); e++){
+	    System.out.println(C.get(e));
+	}
     }
 }
 
