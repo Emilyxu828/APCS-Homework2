@@ -4,21 +4,6 @@ import java.util.*;
 public class MergeSort{
     ArrayList<Integer> C = new ArrayList<Integer>();
     public ArrayList<Integer> merge(ArrayList<Integer> A, ArrayList<Integer> B){
-
-
-	/*	int Asize = A.size();
-	int Bsize = B.size();
-	int bigger;
-	int smaller;
-	if (Asize >= Bsize){
-	    bigger = Asize;
-	    smaller = Bsize;
-	}
-	else {
-	    bigger = Bsize;
-	    smaller = Asize;
-	    } */
-
 	int i=0;
 	int j=0;
 	while (i<A.size() && j<B.size()){
@@ -37,7 +22,6 @@ public class MergeSort{
 		j++;
 	    }
 	}
-
        	if (i == A.size()-1 && j != B.size()-1){
 	    for(j=j; j<B.size(); j++)
 		C.add(B.get(j));
@@ -45,12 +29,19 @@ public class MergeSort{
 	if (i != A.size()-1 && j == B.size()-1){
 	    for (i=i; i<A.size(); i++)
 		C.add(A.get(i));
-		} 
-
-	/*	for (int e=0; e<C.size(); e++){
-	    return C.get(e);
-	    }*/
+	} 
 	return C;
+    }
+
+    public ArrayList<Integer> mergesort(ArrayList<Integer> D){
+	if (D.size()==1)
+	    return D;
+	else {
+	    ArrayList<Integer> E = new ArrayList<Integer>();
+	    E = D.get(0,D.size()/2); *****
+	    ArrayList<Integer> F = new ArrayList<Integer>();
+	    F = D.get(D.size()/2+1) *****
+	}
     }
 
     public String tostring(){
