@@ -25,3 +25,22 @@ public class LakeMaking {
 	System.out.println(u.LakeMaking());
     }
 }
+
+
+
+
+
+
+
+/* 
+6'x6' squares
+elevation in inches
+stomp in inches
+N --> # of stomp instructions
+E - elevation
+*/
+
+
+
+
+
