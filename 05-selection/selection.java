@@ -27,6 +27,34 @@ public class selection{
 	return D;
     }
 
+    public int Select(int[] A, int k, int l, int h){
+	int li = l;
+	int hi = h-1;
+	int livalue;
+	int hivalue;
+	int pivot = A[h];
+
+	while (li<hi){
+	    if (A[li]<pivot)
+		li++;
+	    else {
+		livalue = A[li];
+		hivalue = A[hi];
+		A[li] = hivalue;
+		A[hi] = livalue;
+		hi--;
+	    }
+	}
+        A[h] = A[hi];
+	A[hi] = pivot;
+	if (hi == k)
+	    return pivot;
+	else if (hi < k)
+	    return Select(A, k, l+1, h);
+	else 
+	    return Select(A, k, l, h-1);
+    }
+
     public String tostring(int[] a){
 	String s = "{";
 	for (int i=0; i<a.length; i++)
@@ -45,5 +73,10 @@ public class selection{
 	System.out.println("pre-partition2: ");
 	System.out.println(s.tostring(b));
 	System.out.println("post-partition2: " + s.tostring(s.partition(b,0,7)));
+
+	System.out.println();
+	System.out.println("pre-select, k=5: " + s.tostring(a));
+	System.out.println("post-select, k=5: ");
+	System.out.println(s.Select(a,5,0,11));
     }
 }
