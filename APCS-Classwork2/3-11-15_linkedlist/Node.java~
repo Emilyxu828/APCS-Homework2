@@ -13,7 +13,7 @@ public class Node{
     public void setNext(Node n){
 	next = n;
     }
-    public Node getNext(){
+    public Node getnext(){
 	return next;
     }
     public String toString(){
