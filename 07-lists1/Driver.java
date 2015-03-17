@@ -8,8 +8,9 @@ public class  Driver{
 	}
 	System.out.println(l);
 
-	l.find(5);
+	System.out.println(l.find(5));
 	l.insert(0,"erm");
 	l.insert(5,"rfh");
+	System.out.println(l);
     }
 }

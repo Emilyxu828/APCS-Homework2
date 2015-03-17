@@ -17,17 +17,18 @@ public class LList {
 	return s;
     }
 
-    public String find(int n){
+    public Node find(int n){
 	//will return the value in the nth element of the linked list.
-        String s = "";
+	// Node s = "not here";
 	Node tmp;
 	int i = 0;
 	for (tmp=l; tmp!=null; tmp=tmp.getNext()){
 	    if (i == n)
-		s = s + tmp;
+	        break;
 	    i++;
 	}
-	return s;
+	//	return s;
+	return tmp;
     }
 
     public void insert(int n, String s){
