@@ -19,31 +19,36 @@ public class LList {
 
     public String find(int n){
 	//will return the value in the nth element of the linked list.
-	String s = "not here";
+        String s = "";
 	Node tmp;
-	for (int i=0; tmp=l; tmp!=null; tmp=tmp.getNext(); i++){
-	    if (i = n)
-		s = tmp;
+	int i = 0;
+	for (tmp=l; tmp!=null; tmp=tmp.getNext()){
+	    if (i == n)
+		s = s + tmp;
+	    i++;
 	}
 	return s;
     }
 
-    public void insert(n,s){
+    public void insert(int n, String s){
 	// inserts string s at location n.
 	Node tmp;
-	Node hello;
+	Node hello = null;
 	Node insertee = new Node(s);
-	if (n == 0)
+	int i = 1;
+	if (n == 0){
 	    tmp = l;
 	    insertee.setNext(tmp);
+	}	
 	else {
-	    for (int i=1; tmp=l; tmp!=null; tmp=tmp.getNext(); i++){
-		if (i = n-1)
+	    for (tmp=l; tmp!=null; tmp=tmp.getNext()){
+		if (i == n-1)
 		    hello = tmp;
-		if (i = n){
+		if (i == n){
 		    insertee.setNext(tmp);
 		    hello.setNext(insertee);
 		}
+		i++;
 	    }
 	}
 		
