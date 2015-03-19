@@ -2,7 +2,7 @@ public class LList {
     private Node l;
 
     public LList(){
-	l = new Node("");
+	l = new Node();
     }
 
 
