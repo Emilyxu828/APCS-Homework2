@@ -1,26 +1,33 @@
-public class LList {
-    private Node l;
+import java.io.*;
+import java.util.*;
 
-    public LList(){
-	l = new Node("");
-    }
+public class LList<E> implements Iterable<E>{
+		private Node<E> l;
+		
+		public LList(){
+				l = new Node<E>();
+		}
 
+		public Iterator<E> iterator(){
+				LLit<E> i = new LLit<E>(l.getNext());
+				return i;
+		}
+		
 
-    public LLit getLLit(){
-	LLit llit = new LLit(l);
-	return llit;
-    }
-
-    public void add(String s){
-	Node tmp = new Node(s);
-	tmp.setNext(l.getNext());
-	l.setNext(tmp);
-    }
-
-    public String toString(){
-	String s = "";
-	Node tmp;
-	for (tmp = l; tmp != null; tmp=tmp.getNext()){
-	    s = s + tmp + "-->";
-	}
-    }
+		
+		public void add(E s){
+				Node<E> tmp = new Node<E>(s);
+				tmp.setNext(l.getNext());
+				l.setNext(tmp);
+		}
+		
+		public String toString(){
+				String s = "";
+				Node<E> tmp;;
+				for (tmp=l.getNext() ; tmp!=null ; tmp=tmp.getNext()){
+						s = s + tmp + " --> ";
+				}
+				s = s + "null";
+				return s;
+		}
+}

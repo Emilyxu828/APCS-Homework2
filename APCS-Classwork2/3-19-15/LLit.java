@@ -1,20 +1,23 @@
-public class LLit{
-    private Node l;
-    public LLit(Node n){
-	l = n.getNext();
-    }
+import java.io.*;
+import java.util.*;
 
-    public boolean has Next(){
-	return l !== null;
-    }
+public class LLit<E> implements Iterator<E>{
+		private Node<E> t;
+		public LLit(Node<E> n){
+				t=n;
+		}
 
-    /*
-      move to the next node and return to the value in the node (before the move)
-    */
-    public String next(){
-	String s = l.getData();
-	l = l.getNext();
-	return s;
-    }
+		public boolean hasNext(){
+				return t!=null;
+		}
+
+		public E next(){
+				E retval = t.getData();
+				t=t.getNext();
+				return retval;
+		}
+
+		public void remove() {
+				// fill this in later
+		}
 }
-
