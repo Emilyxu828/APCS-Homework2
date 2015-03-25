@@ -10,13 +10,45 @@ public class myStack<E>{
 
 
     public void push(E data){
+	Node tmp = new Node(data);
+	tmp.setNext(L);
+	L = tmp;
+    }
+
+    public E pop(){
+	if (l.empty()){
+	    Exception e = new Exception();
+	    throw e;
+	}
+	E tmp = l.getData();
+	l = l.getNext();
+	return tmp;
+    }
+
+    public boolean empty(){
+	return l == null;
+    }
+
+
+    public E peek(){
+	if (l.empty()){
+	   Exception e = new Exception();
+	   throw e;
+	}
+	return l.getData();
+    }
+
+
+
+
+    /*
+    public void push(E data){
         // add something to the top
 	Node<E> tmp;
 	for  (tmp=l; tmp!=null; tmp=tmp.getNext()){
 	    if (tmp.getNext() == null)
 		tmp.getNext().setNext(data);
 	}
-
     }
 
     public E pop(){
@@ -49,4 +81,5 @@ public class myStack<E>{
 	    i = tmp.getData();
 	return tmp;
     }
+    */
 }
