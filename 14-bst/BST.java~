@@ -1,7 +1,7 @@
-public class Tree {    
+public class BST {    
     private Node T;
 
-    public Tree() {
+    public BST() {
 	T = null;
     }
     
@@ -15,26 +15,29 @@ public class Tree {
 		tmp = T;
 		if (c>0) 
 		    T = T.getRight();
-		else if (c<0) 
-		    T = T.getLeft();
-		if (a<tmp.getData()) 
-		    tmp.setLeft(new Node(a));
 		else 
-		    tmp.setRight(new Node(a));
+		T = T.getLeft();
 	    }
+	    if (a<tmp.getData()) 
+		tmp.setLeft(new Node(a));
+	    else 
+		tmp.setRight(new Node(a));
 	}
     }
 
+
     public Node search(int i) {
+	//	Node S = new Node(23);
 	while (T!=null) {
-	    int c = compareTo(i);
+            int c = compareTo(i);
 	    if (c>0) 
 		T = T.getRight();
 	    else if (c<0)
-		T = T.getLeft();
+	    T = T.getLeft(); 
 	    else 
 		return T;
 	}
+	//	return S; // null;
 	return null;
     }
 
