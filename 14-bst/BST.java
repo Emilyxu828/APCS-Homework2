@@ -101,7 +101,13 @@ public class BST {
 		    t2.setRight(t.getLeft());
 	    }
 	}
-if
+	if (t.getLeft()!=null && t.getRight()!=null) {
+	    Node l = t.getLeft();
+	    while (l.getRight() != null)
+		l = l.getRight();
+	    t = l;
+	    remove(l.getData());
+	}
     }
     
 }
