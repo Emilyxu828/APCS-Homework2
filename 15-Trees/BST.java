@@ -110,4 +110,76 @@ public class BST {
 	}
     }
     
+
+
+
+
+
+    public int maxValue(Node T){
+	int d = 0;
+	Node tmp = T;
+	while (tmp.getRight() != null){
+	    d = tmp.getRight().getData();
+	    tmp = tmp.getRight();
+	}
+	return d;
+    }
+
+    public int height(Node T){        // idk...
+	/*int hfinal = 0;
+	int h;
+	if (T.getData() == null)
+	    h = 0;
+	*/
+	return 4;
+    }
+
+    public int longest(Node T){
+	int l;
+	if (T == null)
+	    l = 0;
+	else
+	    l = height(T.getLeft()) + 1 + height(T.getRight());
+	return l;
+    }
+
+    public void splitDupes(Node T){
+	while(T.getLeft() != null){
+	    if (T.getLeft().getData() == T.getData()){
+		Node between = new Node(T.getData() - 1);
+		between.setRight(T.getLeft());
+		T.setLeft(between);
+	    }
+	    else {
+		splitDupes(T.getLeft());
+	    }
+	    if (T.getRight().getData() == T.getData()){
+		Node between = new Node(T.getData() - 1);
+		between.setRight(T.getLeft());
+		T.setLeft(between);
+	    }
+	    else {
+		splitDupes(T.getRight());
+	    }
+	}
+	while(T.getRight() != null){
+	    if (T.getLeft().getData() == T.getData()){
+		Node between = new Node(T.getData() - 1);
+		between.setRight(T.getLeft());
+		T.setLeft(between);
+	    }
+	    else {
+		splitDupes(T.getLeft());
+	    }
+	    if (T.getRight().getData() == T.getData()){
+		Node between = new Node(T.getData() - 1);
+		between.setRight(T.getLeft());
+		T.setLeft(between);
+	    }
+	    else {
+		splitDupes(T.getRight());
+	    }
+	}
+
+    }
 }
